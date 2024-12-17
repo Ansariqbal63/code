@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top Navbar with Header and Dropdown</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      /* Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background: white;
+      }
+
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background: #9d0b0b;
+        color: #fff;
+        gap: 20px;
+      }
+
+      /* Logo */
+      .navbar .logo a {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      /* Right Navigation Links */
+      .navbar .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .navbar .nav-links li {
+        margin: 0 15px;
+      }
+
+      .navbar .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1em;
+        transition: color 0.3s;
+      }
+
+      .navbar .nav-links a:hover {
+        color: #f39c12;
+      }
+
+      /* Header Section */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px;
+        background: #9d0b0b;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      /* My Account Section */
+      .account {
+        position: relative;
+        right: -80%;
+      }
+
+      .dropdown a {
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+        transition: background 0.3s;
+      }
+
+      .dropdown a:hover {
+        border-radius: 10px;
+        color: #e67e22;
+      }
+
+      .account:hover .dropdown {
+        display: flex;
+      }
+
+      /* Search Form */
+      .search-form {
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+      }
+
+      .search-form input {
+        background: #f5f5f5;
+        border: none;
+        color: #3c3c3c;
+        width: 100%;
+        height: 48px;
+        font-size: 13px;
+        font-weight: 300;
+        padding: 10px 115px 10px 15px;
+        border-radius: 5px 0 0 5px;
+      }
+
+      .search-form button {
+        background: #edcc3f;
+        color: #000;
+        border: none;
+        height: 48px;
+        padding: 0 27px;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        text-transform: capitalize;
+        cursor: pointer;
+        border-radius: 0 5px 5px 0;
+      }
+
+      .search-form button:hover {
+        background: #e67e22;
+      }
+
+      /* Cart */
+      .cart a {
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transition: color 0.3s;
+      }
+
+      .cart a:hover {
+        color: #f39c12;
+      }
+      .nav-item {
+        list-style: none;
+      }
+      .company-list {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        top: 20px;
+      }
+
+      .scroll {
+        display: flex;
+        justify-content: flex-start;
+        animation: scroll-logos 60s linear infinite; /* Slower animation (40s for example) */
+      }
+
+      /* Flex container for logos */
+      .company-logos {
+        display: flex;
+        gap: 40px;
+        background-color: #9d0b0b; /* Adjust the gap between images */
+      }
+
+      .company-logos img {
+        width: 100px; /* Image width */
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .company-logos img:hover {
+        transform: scale(1.1); /* Zoom effect on hover */
+      }
+
+      /* Keyframe animation for continuous scrolling from right to left */
+      @keyframes scroll-logos {
+        0% {
+          transform: translateX(100%); /* Start from the far right */
+        }
+        100% {
+          transform: translateX(-100%); /* Move all images to the far left */
+        }
+      }
+      .section {
+        color: white;
+        background-color: #9d0b0b;
+        padding: 60px 0;
+        scroll-margin-top: 90px;
+        overflow: clip;
+      }
+      .stats .stats-item span {
+        color: white;
+        font-size: 48px;
+        display: block;
+        font-weight: 700;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        position: relative;
+      }
+      [data-aos] .aos-animate {
+        pointer-events: auto;
+      }
+      [data-aos] {
+        pointer-events: none;
+      }
+      .section-title h2 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        text-align: center;
+        color: gold;
+      }
+      .section-title p {
+        margin-bottom: 15px;
+      }
+      p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      .contact-form h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      .info-box {
+        background-color: #9d0b0b;
+        color: white;
+        padding: 3rem;
+        border-radius: 1rem;
+        height: 100%;
+      }
+      .contact-form {
+        background-color: #9d0b0b;
+        padding: 3rem;
+        border-radius: 1rem;
+        height: 100%;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+        color: white;
+      }
+      .contact-form .btn {
+        background-color: gold;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 2rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: 0.3s;
+        margin-top: 24px;
+      }
+
+      /* Footer Styling */
+      .footer {
+        background-color: #9d0b0b;
+        margin-top: 20px;
+        /* background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
+        /* Gradient */
+        color: white;
+        padding: 2rem 1rem;
+        font-size: 14px;
+      }
+
+      .footer h5 {
+        font-size: 18px;
+        margin-bottom: 1rem;
+        font-weight: bold;
+        color: #ffffff; /* Gold heading color */
+      }
+
+      .footer p {
+        color: #f8f9fa;
+        font-size: 14px;
+      }
+
+      .footer .footer-link {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer .footer-link:hover {
+        color: #ffc107; /* Gold on hover */
+      }
+
+      /* Newsletter Form */
+      .footer form input {
+        border: none;
+        border-radius: 0.25rem;
+        padding: 0.5rem;
+      }
+
+      .footer form button {
+        border-radius: 0.25rem;
+        font-size: 14px;
+      }
+
+      /* Social Icons */
+      .footer .social-icons a {
+        color: white;
+        font-size: 24px;
+        transition: transform 0.3s, color 0.3s;
+      }
+
+      .footer .social-icons a:hover {
+        color: #ffc107; /* Gold on hover */
+        transform: scale(1.2); /* Hover zoom effect */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Navbar -->
+    <div class="navbar">
+      <div class="logo">
+        <a href="#">ASM </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">registration </a></li>
+        <li><a href="#">Store location</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Wishlist</a></li>
+        <li><a href="#">Checkout</a></li>
+      </ul>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header">
+      <!-- My Account -->
+      <div class="account">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            My Account
+          </a>
+          <ul class="dropdown-menu" style="background-color: #9d0b0b">
+            <li><a class="dropdown-item" href="#">Register </a></li>
+            <li><a class="dropdown-item" href="#">Login </a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#">Wishlist</a></li>
+          </ul>
+        </li>
+      </div>
+
+      <!-- Search Form -->
+      <form class="search-form">
+        <input type="text" placeholder="Search for products" />
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+
+      <!-- Cart -->
+      <div class="cart">
+        <a href="#"><i class="fas fa-shopping-cart"></i> Cart (0)</a>
+      </div>
+    </div>
+    <div class="company-list mt-2">
+      <div class="scroll">
+        <div class="company-logos">
+          <img src="q1.png" alt="Company 1 logo" />
+          <img src="q2.png" alt="Company 2 logo" />
+          <img src="q3.png" alt="Company 3 logo" />
+          <img src="q4.png" alt="Company 4 logo" />
+          <img src="q5.png" alt="Company 5 logo" />
+          <img src="q6.png" alt="Company 6 logo" />
+          <img src="q1.png" alt="Company 7 logo" />
+          <img src="q2.png" alt="Company 1 logo" />
+          <img src="q3.png" alt="Company 2 logo" />
+          <img src="q4.png" alt="Company 3 logo" />
+          <img src="q5.png" alt="Company 4 logo" />
+          <img src="q6.png" alt="Company 5 logo" />
+          <img src="q1.png" alt="Company 6 logo" />
+          <img src="q2.png" alt="Company 7 logo" />
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid g-0 mt-5">
+      <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <!-- First slide -->
+          <div class="carousel-item active">
+            <img src="a3.jpg" class="d-block w-100" alt="Image 1" />
+          </div>
+          <!-- Second slide -->
+          <div class="carousel-item">
+            <img src="a2.jpg" class="d-block w-100" alt="Image 2" />
+          </div>
+          <!-- Third slide -->
+          <div class="carousel-item">
+            <img src="a5.jpg" class="d-block w-100" alt="Image 3" />
+          </div>
+        </div>
+        <!-- Carousel controls -->
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#imageCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#imageCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <img src="b.webp" class="container-fluid g-0" alt="" />
+    <section id="stats" class="stats section">
+      <div
+        class="container aos-init aos-animate"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div class="row gy-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="232"
+                data-purecounter-duration="0"
+                class="purecounter"
+                >232</span
+              >
+              <p>Clients</p>
+            </div>
+          </div>
+          <!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="521"
+                data-purecounter-duration="0"
+                class="purecounter"
+                >521</span
+              >
+              <p>Projects</p>
+            </div>
+          </div>
+          <!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="1453"
+                data-purecounter-duration="0"
+                class="purecounter"
+                >1453</span
+              >
+              <p>Hours Of Support</p>
+            </div>
+          </div>
+          <!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span
+                data-purecounter-start="0"
+                data-purecounter-end="32"
+                data-purecounter-duration="0"
+                class="purecounter"
+                >32</span
+              >
+              <p>Workers</p>
+            </div>
+          </div>
+          <!-- End Stats Item -->
+        </div>
+      </div>
+    </section>
+    <div
+      class="container section-title aos-init aos-animate"
+      data-aos="fade-up"
+    >
+      <h2>Contact</h2>
+      <p>
+        Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
+        consectetur velit
+      </p>
+    </div>
+    <div
+      class="container aos-init aos-animate"
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >
+      <div class="row g-4 g-lg-5">
+        <div class="col-lg-5">
+          <div
+            class="info-box aos-init aos-animate"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <h3>Contact Info</h3>
+            <p>
+              Praesent sapien massa, convallis a pellentesque nec, egestas non
+              nisi. Vestibulum ante ipsum primis.
+            </p>
+
+            <div
+              class="info-item aos-init aos-animate"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="icon-box">
+                <i class="bi bi-geo-alt"></i>
+              </div>
+              <div class="content">
+                <h4>Our Location</h4>
+                <p>A108 Adam Street</p>
+                <p>New York, NY 535022</p>
+              </div>
+            </div>
+
+            <div
+              class="info-item aos-init aos-animate"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div class="icon-box">
+                <i class="bi bi-telephone"></i>
+              </div>
+              <div class="content">
+                <h4>Phone Number</h4>
+                <p>+1 5589 55488 55</p>
+                <p>+1 6678 254445 41</p>
+              </div>
+            </div>
+
+            <div
+              class="info-item aos-init aos-animate"
+              data-aos="fade-up"
+              data-aos-delay="500"
+            >
+              <div class="icon-box">
+                <i class="bi bi-envelope"></i>
+              </div>
+              <div class="content">
+                <h4>Email Address</h4>
+                <p>info@example.com</p>
+                <p>contact@example.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div
+            class="contact-form aos-init aos-animate"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <h3>Get In Touch</h3>
+            <p>
+              Praesent sapien massa, convallis a pellentesque nec, egestas non
+              nisi. Vestibulum ante ipsum primis.
+            </p>
+
+            <form
+              action="forms/contact.php"
+              method="post"
+              class="php-email-form aos-init aos-animate"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    placeholder="Your Name"
+                    required=""
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    placeholder="Your Email"
+                    required=""
+                  />
+                </div>
+
+                <div class="col-12">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="subject"
+                    placeholder="Subject"
+                    required=""
+                  />
+                </div>
+
+                <div class="col-12">
+                  <textarea
+                    class="form-control"
+                    name="message"
+                    rows="6"
+                    placeholder="Message"
+                    required=""
+                  ></textarea>
+                </div>
+
+                <div class="col-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">
+                    Your message has been sent. Thank you!
+                  </div>
+
+                  <button type="submit" class="btn">Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer id="contact" class="footer bg-gradient text-white py-5">
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <!-- About Section -->
+          <div class="col-md-4 mb-4" data-aos="fade-up">
+            <h5 class="fw-bold">About StyleSphere</h5>
+            <p>
+              StyleSphere offers a curated selection of the best women's
+              fashion, footwear, and accessories to elevate your style.
+            </p>
+          </div>
+          <!-- Quick Links -->
+          <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <h5 class="fw-bold">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="#home" class="footer-link">Home</a></li>
+              <li><a href="#brands" class="footer-link">Categories</a></li>
+              <li><a href="#contact" class="footer-link">Contact</a></li>
+              <li><a href="#contact" class="footer-link">Shop</a></li>
+              <li><a href="#contact" class="footer-link">pages</a></li>
+              <li><a href="#contact" class="footer-link">About</a></li>
+            </ul>
+          </div>
+          <!-- Newsletter -->
+          <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <h5 class="fw-bold">Stay Connected</h5>
+            <p>Subscribe to our newsletter for the latest updates.</p>
+            <form class="d-flex">
+              <input
+                type="email"
+                class="form-control me-2"
+                placeholder="Enter your email"
+              />
+              <button type="submit" class="btn btn-warning">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <!-- Social Icons -->
+        <div class="text-center mt-4">
+          <div class="social-icons" data-aos="zoom-in">
+            <a href="https://facebook.com" target="_blank" class="icon mx-2">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" class="icon mx-2">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="icon mx-2">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="icon mx-2">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+          <p class="mt-3">&copy; 2024 StyleSphere. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

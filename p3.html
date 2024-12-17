@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      .top-header {
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .top-header .location,
+      .top-header .email {
+        color: #071c1f;
+        margin-right: 20px;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .top-header .location:hover,
+      .top-header .email:hover {
+        color: #80b500;
+      }
+
+      .top-header .social-icons a {
+        color: #071c1f;
+        margin-left: 10px;
+        text-decoration: none;
+      }
+
+      .top-header .social-icons a:hover {
+        color: #80b500;
+      }
+
+      .dropdown-menu a {
+        color: #071c1f;
+        text-decoration: none;
+      }
+      .btn {
+        font-weight: 700;
+      }
+
+      .dropdown-menu a:hover {
+        background-color: #f8f9fa;
+        color: #80b500;
+      }
+      .navbar {
+        padding: 15px 0;
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #80b500;
+        text-decoration: none;
+      }
+
+      .navbar-nav .nav-link {
+        color: #071c1f;
+        margin: 0 10px;
+        font-weight: 500;
+        text-decoration: none;
+      }
+      .fa-solid {
+        color: #80b500;
+      }
+      .fa-regular {
+        color: #80b500;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #80b500;
+      }
+
+      .icons a {
+        color: #071c1f;
+        margin: 0 10px;
+        font-size: 1.2rem;
+        text-decoration: none;
+      }
+
+      .icons a:hover {
+        color: #80b500;
+      }
+
+      .btn-custom {
+        background-color: #80b500;
+        color: #fff;
+        border: none;
+        padding: 5px 15px;
+        border-radius: 5px;
+      }
+
+      .btn-custom:hover {
+        background-color: #6da700;
+      }
+      .carousel-caption {
+        position: absolute;
+        top: 30%;
+        left: 10%;
+        transform: translate(-20%, -20%);
+        text-align: center;
+        /* background-color: rgba(0, 0, 0, 0.5); Semi-transparent background */
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .carousel-caption h1 {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      .carousel-caption p {
+        font-size: 1.2rem;
+        margin-top: 10px;
+      }
+    </style>
+    <title>Top Header</title>
+  </head>
+  <body>
+    <div class="top-header">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Left Side -->
+          <div class="col-md-6 d-flex align-items-center">
+            <a href="#" class="location"
+              ><i class="fa-solid fa-location-dot"></i> 15/A, Nest Tower, NYC</a
+            >
+            <a href="#" class="email"
+              ><i class="fa-regular fa-envelope"></i> info@webmail.com</a
+            >
+          </div>
+          <!-- Right Side -->
+          <div class="col-md-6 text-end">
+            <div class="d-inline-block me-3">
+              <div class="dropdown">
+                <button
+                  class="btn btn-sm"
+                  type="button"
+                  id="languageDropdown"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  English <i class="fa-solid fa-arrow-down"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                  <li><a class="dropdown-item" href="#">Arabic</a></li>
+                  <li><a class="dropdown-item" href="#">Bengali</a></li>
+                  <li><a class="dropdown-item" href="#">Chinese</a></li>
+                  <li><a class="dropdown-item" href="#">English</a></li>
+                  <li><a class="dropdown-item" href="#">French</a></li>
+                  <li><a class="dropdown-item" href="#">Hindi</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="social-icons d-inline-block">
+              <a href="#" title="Facebook"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+              <a href="#" title="Twitter"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a href="#" title="LinkedIn"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a href="#" title="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container">
+        <!-- Left: Logo -->
+        <a class="navbar-brand" href="#"><img src="logo2.png" alt="" /></a>
+
+        <!-- Center: Nav Items -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home+</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About+</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Shop+</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">News+</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pages+</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact+</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Button and Icons -->
+        <div class="d-flex align-items-center">
+          <button class="btn btn-custom me-3">Get a Quote</button>
+          <div class="icons">
+            <a href="#" title="Search"
+              ><i class="fa-solid fa-magnifying-glass"></i
+            ></a>
+            <a href="#" title="Add to Cart"
+              ><i class="fa-solid fa-cart-shopping"></i
+            ></a>
+            <a href="#" title="User"><i class="fa-solid fa-user"></i></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="p3.jpg" class="d-block w-100" alt="img" />
+        </div>
+        <div
+          class="carousel-caption d-flex flex-column align-items-left justify-content-center"
+        >
+          <h1 class="display-4 text-light">Welcome to Our Website</h1>
+          <p class="text-light">
+            Discover amazing content and experiences tailored for you.
+          </p>
+          <a href="#" class="btn btn-custom mt-3">Learn More</a>
+        </div>
+        <div class="carousel-item">
+          <img src="p3.jpg" class="d-block w-100" alt="img" />
+        </div>
+        <div class="carousel-item">
+          <img src="p4.jpg" class="d-block w-100" alt="img" />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div class="container-fluid p-0 m-0">
+      <div class="row g-0">
+        <!-- Image 1 -->
+        <div class="col-md-3">
+          <img src="c1.jpg" alt="Image 1" class="img-fluid" />
+        </div>
+        <!-- Image 2 -->
+        <div class="col-md-3">
+          <img src="c2.jpg" alt="Image 2" class="img-fluid" />
+        </div>
+        <!-- Image 3 -->
+        <div class="col-md-3">
+          <img src="c3.jpg" alt="Image 3" class="img-fluid" />
+        </div>
+        <!-- Image 4 -->
+        <div class="col-md-3">
+          <img src="c4.jpg" alt="Image 4" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

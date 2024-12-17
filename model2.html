@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Modal Form</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .modal-dialog {
+        max-width: 750px;
+        width: 100%;
+      }
+      .modal-content {
+        height: 888px;
+        width: 960px;
+        border-radius: 10px;
+      }
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .login-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #ff5300;
+        color: #fff;
+        border: none;
+        border-radius: 15px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .btn {
+        background-color: #ff5300;
+        color: #fff;
+      }
+      .notes {
+        background-color: #feeadc;
+      }
+      body {
+        background-color: #feeadc;
+      }
+      hr {
+        color: #7d7d7d;
+        border: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Modal -->
+    <section>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Leads</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+              <!-- First Row of Input Fields -->
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="input1">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input1"
+                    placeholder="Add name"
+                  />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="input2">E-mail</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input2"
+                    placeholder="Add E-mail"
+                  />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="input3">Phone number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input3"
+                    placeholder="Add Phone number"
+                  />
+                </div>
+              </div>
+
+              <!-- Second Row of Input Fields -->
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="input4">title</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input4"
+                    placeholder="Add title"
+                  />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="input7">Industary </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input7"
+                    placeholder="Add industry"
+                  />
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="input5">Company</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input5"
+                    placeholder="Add company"
+                  />
+                </div>
+              </div>
+
+              <!-- Third Row of Input Fields -->
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="input6">Website</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input6"
+                    placeholder="www"
+                  />
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label for="dropdown">Sources</label>
+                  <select id="dropdown" class="form-control">
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="input8">Project Category</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input8"
+                    placeholder="Project Category"
+                  />
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="input9">Duration(Days)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input9"
+                    placeholder="days"
+                  />
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="input8">Proposed Duration</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input8"
+                    placeholder=""
+                  />
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="input9">Proposed Duration</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input9"
+                    placeholder="days"
+                  />
+                </div>
+              </div>
+
+              <hr />
+
+              <!-- Input Field with Heading -->
+              <div class="form-group">
+                <h5>All NOTES</h5>
+                <div class="notes">
+                  <p>
+                    02 Feb 2023 | 02:34 <br />
+                    am Acculance stands out as a web application crafted for
+                    point of sale, inventory management, & etc.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Small Button and Input Field -->
+              <div class="form-group">
+                <div class="mb-3">
+                  <label for="description" class="form-label"
+                    >Add new note</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="description"
+                    rows="4"
+                    placeholder="Enter your text here"
+                  ></textarea>
+                </div>
+                <button type="button" class="btn mt-3">+ Add</button>
+              </div>
+            </div>
+
+            <!-- Modal Footer with Large Button -->
+            <div class="modal-footer">
+              <button type="submit" class="btn login-btn">Save Change</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button to Open Modal -->
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#exampleModal"
+      >
+        Open Modal
+      </button>
+
+      <!-- Bootstrap and jQuery Scripts -->
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </section>
+  </body>
+</html>

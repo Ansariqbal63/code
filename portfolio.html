@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+
+      /* Navbar Styles */
+      .navbar {
+        background-color: #333;
+        padding: 15px;
+      }
+
+      .navbar .logo {
+        color: #fff;
+        font-size: 1.8rem;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .navbar ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        margin: 0;
+      }
+
+      .navbar ul li {
+        list-style: none;
+      }
+
+      .navbar ul li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .navbar ul li a:hover {
+        background-color: #555;
+      }
+
+      /* Main Section */
+      .main-content {
+        text-align: center;
+        margin-top: 100px;
+        padding: 50px 20px;
+      }
+
+      .main-content h1 {
+        font-size: 3rem;
+        color: #333;
+      }
+
+      .main-content p {
+        font-size: 1.2rem;
+        color: #666;
+        margin: 20px 0;
+      }
+
+      .btn-hire {
+        padding: 12px 30px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .btn-hire:hover {
+        background-color: #0056b3;
+      }
+
+      /* About Section */
+      .about-us {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 100px 50px;
+        padding: 50px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-us img {
+        width: 45%;
+        border-radius: 10px;
+        transition: transform 0.5s ease;
+      }
+
+      .about-us .content {
+        width: 50%;
+        padding-left: 30px;
+      }
+
+      .about-us .content h2 {
+        font-size: 2.5rem;
+        color: #007bff;
+      }
+
+      .about-us .content p {
+        font-size: 1.1rem;
+        color: #555;
+        line-height: 1.6;
+      }
+
+      .about-us img:hover {
+        transform: scale(1.1);
+      }
+
+      /* Projects Section */
+      .projects {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 50px;
+        background-color: #f8f9fa;
+      }
+
+      .project-card {
+        background-color: #fff;
+        width: 30%;
+        margin: 20px 0;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .project-card img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+
+      .project-card h4 {
+        color: #333;
+        font-size: 1.4rem;
+      }
+
+      .project-card p {
+        font-size: 1rem;
+        color: #666;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 30px;
+        margin-top: 50px;
+      }
+
+      .footer a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 15px;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* AOS Animations */
+      [data-aos="fade-right"] {
+        animation: fadeInRight 1s ease-out;
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      [data-aos="fade-left"] {
+        animation: fadeInLeft 1s ease-out;
+      }
+
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Media Queries for Responsiveness */
+      @media (max-width: 768px) {
+        .about-us {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .about-us img {
+          width: 80%;
+          margin-bottom: 20px;
+        }
+
+        .projects {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .project-card {
+          width: 80%;
+          margin: 20px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a href="#" class="logo">MyPortfolio</a>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content Section -->
+    <section id="home" class="main-content">
+      <h1>Welcome to My Portfolio</h1>
+      <p>
+        I'm a passionate web developer skilled in full-stack development and web
+        design.
+      </p>
+      <a href="#contact" class="btn-hire">Hire Me</a>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-us">
+      <img src="ansar (2).jpg" alt="My Photo" data-aos="fade-right" />
+      <div class="content" data-aos="fade-left">
+        <h2>About Me</h2>
+        <p>
+          Hello! I'm a web developer with experience in building full-stack
+          applications. I specialize in modern JavaScript frameworks like React,
+          Node.js, and Express. I love creating beautiful, responsive websites
+          and delivering exceptional user experiences.
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="project-card" data-aos="fade-up">
+        <img src="https://via.placeholder.com/400" alt="Project 1" />
+        <h4>Project 1</h4>
+        <p>
+          This is a description of the first project I worked on. It involves
+          building a responsive web application using React and Node.js.
+        </p>
+      </div>
+      <div class="project-card" data-aos="fade-up">
+        <img src="https://via.placeholder.com/400" alt="Project 2" />
+        <h4>Project 2</h4>
+        <p>
+          This project is about building an e-commerce website with a backend
+          API using Express and MongoDB.
+        </p>
+      </div>
+      <div class="project-card" data-aos="fade-up">
+        <img src="https://via.placeholder.com/400" alt="Project 3" />
+        <h4>Project 3</h4>
+        <p>
+          This project demonstrates a blogging platform created with a MERN
+          stack, including user authentication and CRUD operations.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+      <p>&copy; 2024 MyPortfolio. All Rights Reserved.</p>
+      <p>
+        <a href="#">LinkedIn</a> | <a href="#">GitHub</a> |
+        <a href="#">Twitter</a>
+      </p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

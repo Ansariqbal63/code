@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Header and Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- Top Header -->
+    <header class="bg-gray-800 text-white py-2">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="text-sm">
+          <p>📞 Call us: +1 234 567 890</p>
+        </div>
+        <div class="text-sm">
+          <a href="#" class="hover:underline">Sign In</a> |
+          <a href="#" class="hover:underline">Register</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="bg-blue-500 text-white">
+      <div class="container mx-auto flex justify-between items-center py-3">
+        <!-- Logo -->
+        <div class="text-lg font-bold">
+          <a href="#" class="hover:text-gray-300">MyBrand</a>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="flex space-x-6 mx-auto">
+          <li><a href="#" class="hover:underline">Home</a></li>
+          <li><a href="#" class="hover:underline">About</a></li>
+          <li><a href="#" class="hover:underline">Services</a></li>
+          <li><a href="#" class="hover:underline">Contact</a></li>
+        </ul>
+
+        <!-- Action Button -->
+        <div>
+          <a
+            href="#"
+            class="bg-white text-blue-500 px-4 py-2 rounded hover:bg-gray-100"
+            >Get Started</a
+          >
+        </div>
+      </div>
+    </nav>
+  </body>
+</html>

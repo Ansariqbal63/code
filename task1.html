@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="ansar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        background: black;
+      }
+      #loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .dot-loader {
+        display: flex;
+        gap: 8px;
+      }
+
+      .dot {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        animation: bounce 1.5s infinite;
+      }
+
+      /* Assign colors to the dots */
+      .dot:nth-child(1) {
+        background-color: #e74c3c;
+        animation-delay: 0s;
+      }
+      .dot:nth-child(2) {
+        background-color: #f1c40f;
+        animation-delay: 0.2s;
+      }
+      .dot:nth-child(3) {
+        background-color: #2ecc71;
+        animation-delay: 0.4s;
+      }
+      .dot:nth-child(4) {
+        background-color: #3498db;
+        animation-delay: 0.6s;
+      }
+
+      /* Bouncing animation */
+      @keyframes bounce {
+        0%,
+        80%,
+        100% {
+          transform: scale(0);
+        }
+        40% {
+          transform: scale(1);
+        }
+      }
+
+      /* Initially hide content */
+      #content {
+        display: none;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: black;
+        padding: 38px 38px;
+      }
+
+      .navbar ul {
+        display: flex;
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+      }
+
+      ul li {
+        list-style: none;
+      }
+
+      ul li a {
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+        padding: 8px;
+        border-radius: 20px;
+        transition: color 0.3s ease;
+      }
+
+      ul li a:hover {
+        color: red;
+      }
+
+      .logo {
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        text-shadow: -1px 1px 1px black;
+        margin-left: 10px;
+      }
+
+      .logo:hover {
+        color: white;
+      }
+
+      .infor h1 {
+        /* font-size: 100px; */
+        color: white;
+        font-weight: 650;
+        font-size: 100px;
+        text-transform: uppercase;
+        text-align: center;
+        color: white;
+      }
+
+      .infor h3 {
+        font-size: 18px;
+        letter-spacing: 1px;
+        line-height: 24px;
+        color: white;
+        font-family: "Inter", sans-serif;
+      }
+
+      .infor span {
+        color: white;
+      }
+
+      .infor {
+        margin-left: 24%;
+        margin-top: 194px;
+      }
+
+      .infor a {
+        background: hsl(0, 93%, 49%);
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        border: 1px solid#ff003a;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 44px;
+        margin: 40px 5px 10px 0;
+        overflow: visible;
+        border-radius: 2px;
+        padding: 16px 35px;
+        text-align: center;
+        text-transform: none;
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+        text-decoration: none;
+      }
+
+      .infor a:hover {
+        background: rgb(59, 174, 209);
+        color: white;
+      }
+
+      .img-1 img {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        left: 931px;
+        bottom: 515px;
+        border-radius: 50%;
+        border: 2px solid green;
+      }
+
+      /* Company logo container */
+      .company-list {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .scroll {
+        display: flex;
+        justify-content: flex-start;
+        animation: scroll-logos 60s linear infinite; /* Slower animation (40s for example) */
+      }
+
+      /* Flex container for logos */
+      .company-logos {
+        display: flex;
+        gap: 40px; /* Adjust the gap between images */
+      }
+
+      .company-logos img {
+        width: 100px; /* Image width */
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .company-logos img:hover {
+        transform: scale(1.1); /* Zoom effect on hover */
+      }
+
+      /* Keyframe animation for continuous scrolling from right to left */
+      @keyframes scroll-logos {
+        0% {
+          transform: translateX(100%); /* Start from the far right */
+        }
+        100% {
+          transform: translateX(-100%); /* Move all images to the far left */
+        }
+      }
+      .services {
+        margin-bottom: 15px;
+        font-size: 60px;
+        line-height: 70px;
+        text-transform: uppercase;
+        padding-bottom: 20px;
+      }
+      .container {
+        display: grid;
+        gap: 20px;
+      }
+      h3 {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        font-size: 60px;
+        line-height: 70px;
+        text-transform: uppercase;
+        padding-bottom: 20px;
+        color: white;
+      }
+      .card {
+        background-color: rgb(30, 19, 19);
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(228, 6, 6, 0.1);
+      }
+      .card h5 {
+        text-align: left;
+        margin-bottom: 15px;
+        color: white;
+      }
+      .card p {
+        color: white;
+        margin-top: 0px;
+        line-height: 28px;
+        display: block;
+        margin-bottom: 1rem;
+      }
+
+      /* Responsive Design for smaller screens */
+      @media (max-width: 768px) {
+        .container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      h5 {
+        color: white;
+        font-size: 40px;
+        text-transform: uppercase;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      h2 {
+        background: orangered;
+        margin-bottom: 60px;
+        color: black;
+        font-family: sans-serif;
+        border: 1px solid;
+        display: inline-block;
+        padding: 4px 10px;
+        font-size: 30px;
+        border-radius: 6px;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+      }
+      .arrow {
+        position: absolute;
+        font-size: 60px;
+        color: orangered;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        top: 18%;
+        right: 4%;
+        font-size: 30px;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 16px;
+        width: 100%;
+        max-width: 1250px;
+      }
+
+      .grid-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transform: scale(1);
+        display: inline-block;
+      }
+      .card {
+        margin-bottom: 20px;
+      }
+
+      /* About Section */
+      .about-us {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 100px 50px;
+        padding: 50px;
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+      }
+
+      .about-us img {
+        width: 403px;
+        transition: transform 0.5s ease;
+        border-radius: 264px;
+        margin-bottom: 20px;
+        height: 400px;
+      }
+
+      .about-us .content {
+        width: 50%;
+        padding-left: 30px;
+        line-height: 1.6;
+        background-color: black;
+      }
+
+      .about-us .content h2 {
+        font-size: 2.5rem;
+        color: white;
+        background-color: black;
+      }
+
+      .about-us .content p {
+        font-size: 1.1rem;
+        color: #ddd;
+        padding-left: 20px;
+      }
+
+      .about-us img:hover {
+        transform: scale(1.1);
+      }
+
+      /* AOS animations */
+      [data-aos="fade-right"] {
+        animation: fadeInRight 1s ease-out;
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      [data-aos="fade-left"] {
+        animation: fadeInLeft 1s ease-out;
+      }
+
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      img {
+        border-radius: 100%; /* This ensures the image is round */
+        width: 60px; /* Adjust width as needed */
+        height: 60px; /* Adjust height to match the width */
+
+        /* Ensures the image covers the circle area properly */
+        display: block; /* Optional: Ensures no extra space around image */
+        margin: 0 auto; /* Centers the image */
+        text-align: left;
+        margin-left: 30px;
+        margin-bottom: 10px;
+      }
+      h5 {
+        font-weight: bold;
+        margin-left: 20px;
+      }
+      p {
+        font-size: 20px;
+        margin-left: 20px;
+      }
+      .card {
+        background-color: rgb(36, 4, 4);
+        color: aliceblue;
+      }
+      h4 {
+        margin-left: 20px;
+        color: white;
+      }
+      .img1 {
+        width: 100%;
+        height: 100%;
+        background-position: right;
+        border-radius: 1px;
+        padding-right: 20px;
+        vertical-align: middle;
+        display: inline-block;
+        margin-right: 15px;
+      }
+      .btn1 {
+        background: hsl(0, 93%, 49%);
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        border: 1px solid#ff003a;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 44px;
+        margin: 40px 5px 10px 0;
+        overflow: visible;
+        border-radius: 2px;
+        padding: 16px 35px;
+        text-align: center;
+        text-transform: none;
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+        text-decoration: none;
+        text-align: center;
+      }
+      .hero-counter-area .counter-item {
+        text-align: center;
+        line-height: 1;
+        font-weight: 700;
+      }
+      .hero-counter-area {
+        margin-top: 60px;
+      }
+      /* General styles for the container */
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Flexbox layout for left and right side */
+      .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      /* Left Side (Image, Heading, Paragraph, Social Media Icons) */
+      .contact-content {
+        text-align: left;
+      }
+
+      .contact-image {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+      }
+
+      .contact-content h3 {
+        font-size: 2rem;
+        color: white;
+        margin-bottom: 10px;
+      }
+
+      .contact-content p {
+        font-size: 1.1rem;
+        color: white;
+        margin-bottom: 16px;
+        margin-top: 0;
+      }
+      .below {
+        line-height: 28px;
+      }
+
+      .social-media ul li {
+        list-style: none;
+
+        display: inline-block;
+        margin-right: 25px;
+      }
+      .social-media ul li a {
+        font-size: 20px;
+        border: 3px solid orangered;
+        padding: 8px 14px;
+        border-radius: 30px;
+      }
+
+      .social-media a {
+        text-decoration: none;
+        font-size: 1.1rem;
+        color: white;
+        display: inline-block;
+        transition: color 0.3s;
+      }
+
+      .social-media a:hover {
+        color: orangered;
+      }
+      @media (max-width: 768px) {
+        .contact-form {
+          width: 100%;
+        }
+      }
+
+      /* Right Side (Contact Form) */
+      .contact-form {
+        padding: 20px;
+        background-color: black;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-form .form-group {
+        margin-bottom: 20px;
+      }
+
+      .contact-form label {
+        font-size: 1rem;
+        color: white;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .contact-form .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        color: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: black;
+      }
+
+      .contact-form .form-control:focus {
+        border-color: #3498db;
+        outline: none;
+      }
+
+      .contact-form .theme-btn {
+        background-color: orangered;
+        color: white;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .contact-form .theme-btn:hover {
+        background-color: #2980b9;
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+        .row {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .contact-content {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+
+        .contact-form {
+          width: 100%;
+        }
+      }
+      .footer-top p {
+        font-size: 20px;
+        text-align: center;
+        line-height: 28px;
+        margin-top: 0px;
+        color: white;
+      }
+      .link {
+        text-decoration: none;
+      }
+      p.copy-left-text {
+        color: white;
+        font-size: 12px;
+        line-height: 20px;
+        -moz-text-align-last: left;
+        text-align-last: left;
+      }
+      p.copy-right-text {
+        color: var(--main-color);
+        font-size: 12px;
+        line-height: 20px;
+        -moz-text-align-last: right;
+        text-align-last: right;
+        color: white;
+      }
+      .main-footer {
+        margin-top: 20px;
+      }
+      @media only screen and (max-width: 767px) {
+        .main-footer {
+          padding: 50px 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loader">
+      <div class="dot-loader">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+    <div id="content">
+      <nav class="navbar">
+        <div>
+          <a href="" class="logo">NOIR</a>
+        </div>
+        <ul>
+          <li>
+            <a href=""> <i class="fa fa-home"></i>&nbsp;HOME</a>
+          </li>
+          <li>
+            <a href=""> <i class="fa fa-envelope"></i>&nbsp;ABOUT</a>
+          </li>
+          <li>
+            <a href=""> <i class="fa fa-user"></i>&nbsp;SERVICES</a>
+          </li>
+          <li>
+            <a href=""> <i class="fa fa-bell"></i>&nbsp;CONTACT</a>
+          </li>
+          <li>
+            <a href=""> <i class="fa fa-search"></i>&nbsp;BLOG</a>
+          </li>
+          <li>
+            <a href="#PROJECT"> <i class="fa fa-search"></i>&nbsp;PROJECT</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div
+        class="infor"
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin-top: 235px;
+          margin-left: 15px;
+        "
+      >
+        <h1>
+          Freelance<br />
+          Brand Designer
+        </h1>
+        <h3>
+          <span>
+            Hi, I’m Ansar, a passionate UX Designer dedicated to creating
+            user-friendly digital experiences.</span
+          >
+        </h3>
+        <div><a href="#" class="bet">Get in Touch</a></div>
+      </div>
+
+      <div class="img-1">
+        <img src="me.webp" alt="Ansar's photo" />
+      </div>
+
+      <div class="company-list">
+        <div class="scroll">
+          <div class="company-logos">
+            <img src="1.webp" alt="Company 1 logo" />
+            <img src="2.webp" alt="Company 2 logo" />
+            <img src="3.webp" alt="Company 3 logo" />
+            <img src="4.webp" alt="Company 4 logo" />
+            <img src="5.webp" alt="Company 5 logo" />
+            <img src="6.webp" alt="Company 6 logo" />
+            <img src="7.webp" alt="Company 7 logo" />
+            <img src="1.webp" alt="Company 1 logo" />
+            <img src="2.webp" alt="Company 2 logo" />
+            <img src="3.webp" alt="Company 3 logo" />
+            <img src="4.webp" alt="Company 4 logo" />
+            <img src="5.webp" alt="Company 5 logo" />
+            <img src="6.webp" alt="Company 6 logo" />
+            <img src="7.webp" alt="Company 7 logo" />
+          </div>
+        </div>
+      </div>
+      <h3 style="margin-bottom: px">Services</h3>
+
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col-lg-8 col-md-7">
+          <div class="card">
+            <!-- <img src="..." class="card-img-top" alt="..." /> -->
+            <div class="card-body">
+              <i class="fa-solid fa-arrow-up arrow text-danger"></i>
+              <h2>01</h2>
+              <h5 class="card-title">Brand Identity Design</h5>
+              <p class="card-text">
+                Blend of strategic thinking and creative flair to craft a
+                digital identity that resonates and<br />
+                captivates.kits you need to create a true website within
+                minutes.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <div class="card">
+            <!-- <img src="..." class="card-img-top" alt="..." /> -->
+            <div class="card-body">
+              <i class="fa-solid fa-arrow-up arrow text-danger"></i>
+              <h2>02</h2>
+              <h5 class="card-title">Visual Design</h5>
+              <p class="card-text">
+                Blend of artistic intuition with <br />strategic insight to
+                craft a visual identity.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <div class="card">
+            <i class="fa-solid fa-arrow-up arrow text-danger"></i>
+            <!-- <img src="..." class="card-img-top" alt="..." /> -->
+            <div class="card-body">
+              <h2>03</h2>
+              <h5 class="card-title">UX Research</h5>
+              <p class="card-text">
+                Blend of functionality with<br />
+                aesthetics to create delightful experience.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-7 bg-dark">
+          <div class="card">
+            <!-- <img src="..." class="card-img-top" alt="..." /> -->
+            <div class="card-body">
+              <i class="fa-solid fa-arrow-up arrow text-danger"></i>
+              <h2>04</h2>
+              <h5 class="card-title">Art Direction</h5>
+              <p class="card-text">
+                Blend of strategic thinking and creative flair to craft a
+                digital identity that resonates and <br />
+                captivates.kits you need to create a true website within
+                minutes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- recent work -->
+      <div>
+        <div>
+          <h3>RECENT WORK</h3>
+        </div>
+        <div class="grid-container" id="PROJECT">
+          <div class="grid-item"><img src="w1.webp" alt="Image 1" /></div>
+          <div class="grid-item"><img src="w2.webp" alt="Image 2" /></div>
+          <div class="grid-item"><img src="w3.webp" alt="Image 3" /></div>
+          <div class="grid-item"><img src="w4.webp" alt="Image 4" /></div>
+          <div class="grid-item"><img src="w5.webp" alt="Image 5" /></div>
+          <div class="grid-item"><img src="w6.webp" alt="Image 6" /></div>
+        </div>
+      </div>
+      <div>
+        <div><h3>Testinomials</h3></div>
+      </div>
+      <div class="container-fluid headertop">
+        <div class="container-fluid headerin">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                </div>
+                <img src="me.webp" class="card-img-left" alt="Card Image" />
+                <div>
+                  <h4 class="card-text">Zonathon</h4>
+                  <p>CEO & Founder X</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                </div>
+                <img src="me.webp" class="card-img-left" alt="Card Image" />
+                <div>
+                  <h4 class="card-text">Zonathon</h4>
+                  <p>CEO & Founder X</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                </div>
+                <img src="me.webp" class="card-img-left" alt="Card Image" />
+                <div>
+                  <h4 class="card-text">Zonathon</h4>
+                  <p>CEO & Founder X</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                </div>
+                <img src="me.webp" class="card-img-left" alt="Card Image" />
+                <div>
+                  <h4 class="card-text">Zonathon</h4>
+                  <p>CEO & Founder X</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                </div>
+                <img src="me.webp" class="card-img-left" alt="Card Image" />
+                <div>
+                  <h4 class="card-text">Zonathon</h4>
+                  <p>CEO & Founder X</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div><h3>Stories</h3></div>
+      <div class="container1">
+        <div class="row gy-3">
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card">
+              <img src="blog1.webp" class="img1 gy-2" alt="img" />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary btn1">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card">
+              <img src="blog2.webp" class="img1 gy-2" alt="img" />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary btn1">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card">
+              <img src="blog3.webp" class="img1 gy-2" alt="img" />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary btn1">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- About Us Section -->
+      <section class="about-us" data-aos="fade-right">
+        <img src="me.webp" class="about" alt="About Us Image" />
+        <div class="content" data-aos="fade-left">
+          <h3>About Me</h3>
+          <p>
+            Hello! I'm Ansar, a passionate web developer with expertise in MERN
+            stack technologies. I create dynamic, responsive websites and web
+            applications that help businesses achieve success online. With years
+            of experience in front-end and back-end development, I strive to
+            build innovative and user-friendly digital solutions.
+          </p>
+        </div>
+      </section>
+      <h3>CONTACT ME</h3>
+      <section id="contact" class="contact-area">
+        <div class="container">
+          <div class="row">
+            <!-- Left Side: Image, Heading, Paragraph, Social Icons -->
+            <div class="col-lg-6">
+              <div class="contact-content">
+                <img src="me.webp" alt="Contact Image" class="contact-image" />
+                <p>Are you ready</p>
+                <h4>
+                  Elevate Your<br />
+                  Brand experience<br />
+                  to the next level
+                </h4>
+                <p class="below">
+                  Hi, I'm Walker, a passionate UX Designer dedicated to creating
+                  user-friendly digital experiences. Feel free to reach out if
+                  you have any questions!
+                </p>
+                <div class="social-media">
+                  <ul>
+                    <li>
+                      <a href="#"><i class="fa-brands fa-facebook"></i> </a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa-brands fa-github"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Contact Form -->
+            <div class="col-lg-6">
+              <div class="contact-form">
+                <form id="contactForm" action="#" method="post">
+                  <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      class="form-control"
+                      placeholder="Steve Milner"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input
+                      type="email"
+                      id="email"
+                      class="form-control"
+                      placeholder="hello@websitename.com"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input
+                      type="text"
+                      id="subject"
+                      class="form-control"
+                      placeholder="Your Subject"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea
+                      id="message"
+                      class="form-control"
+                      rows="4"
+                      placeholder="Write Your message"
+                      required
+                    ></textarea>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="theme-btn">
+                      Send Message
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="main-footer mt-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="footer-top">
+                <p>Have a project in mind?</p>
+                <h3>
+                  <a href="mailto:hello@websitename.com" class="text-white link"
+                    >Hello@noir.com</a
+                  >
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-sm-6">
+              <p class="copy-left-text">
+                Template by
+                <a
+                  href="https://themeforest.net/user/creativepersonal/portfolio"
+                  >Creative Personal®</a
+                >
+              </p>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+              <p class="copy-right-text">© Copyright 2024</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      setTimeout(function () {
+        // Hide the loader
+        document.getElementById("loader").style.display = "none";
+
+        // Show the content
+        document.getElementById("content").style.display = "block";
+      }, 4000); // 4000ms = 4 seconds
+    </script>
+  </body>
+</html>
